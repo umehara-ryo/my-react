@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App5 from './01-base/05-イベントバインド'
+import App from './01-base/16-プロパティ'
 
 
 
-ReactDOM.render(<App5></App5>,document.getElementById('root'));
+ReactDOM.render(<App></App>,document.getElementById('root'));
