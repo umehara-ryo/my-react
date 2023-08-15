@@ -5,8 +5,18 @@ class App
     render() {
         return (
             <div>
-                <Navbar></Navbar>
-
+            <div>
+                <h2>ホーム</h2>
+                <Navbar title ="ホーム" ></Navbar>
+            </div>
+                <div>
+                <h2>リスト</h2>
+                <Navbar　title ="リスト" leftshow={true}></Navbar>
+            </div>
+                <div>
+                <h2>カート</h2>
+                <Navbar　title ="カート" leftshow={true}></Navbar>
+            </div>
             </div>
         );
     }
