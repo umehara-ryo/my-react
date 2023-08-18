@@ -1,7 +1,7 @@
 import {action, observable} from "mobx";
 
 
-var obj = observable({
+var store = observable({
     isTabberShow:true,
     list:[],
     cityName: "東京",
@@ -15,3 +15,5 @@ var obj = observable({
     changeShow:action,
     changeHide:action
 });
+
+export default store;

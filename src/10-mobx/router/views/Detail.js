@@ -3,6 +3,7 @@
  * @公众号: 大前端私房菜
  */
 import React,{useEffect} from 'react'
+import store from "../mobx/store";
 
 export default function Detail(props) {
     console.log(props.match.params.myid,"利用id去后端拿数据。")
@@ -14,8 +15,10 @@ export default function Detail(props) {
 
         //store.dispatch  通知
 
+        store.changeHide();
         return () => {
             console.log("destroy")
+            store.changeShow();
         }
     }, [])
 
