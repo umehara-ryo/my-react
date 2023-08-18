@@ -7,6 +7,10 @@ import MRouter from './router/IndexRouter'
 import Tabbar from './components/Tabbar'
 import './views/css/App.css'
 import store from './redux/store'
+import {observe} from "mobx";
+
+@inject("store")
+@observe
 export default class App extends Component {
     state = {
         isShow:store.getState().TabbarReducer.get("show")
@@ -28,7 +32,7 @@ export default class App extends Component {
            <div>
                 {/* 其他的内容 */}
                 <MRouter>
-                    {this.state.isShow && <Tabbar></Tabbar>}
+                    {this.props.isTabberShow && <Tabbar></Tabbar>}
                 </MRouter>
            </div>
         )

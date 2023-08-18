@@ -16,4 +16,16 @@ var store = observable({
     changeHide:action
 });
 
-export default store;
+// class Store{
+//     @observable isTabberShow = true
+//     @observable list = []
+//
+//     @action changeShow(){
+//         this.isTabberShow = true
+//     }
+//     @action changeHide(){
+//         this.isTabberShow = false
+//     }
+// }
+//    const store = new Store()
+ export default store;

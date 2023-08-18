@@ -5,6 +5,9 @@
 import React,{useState,useEffect} from 'react'
 import getCinemaListAction from '../redux/actionCreator/getCinemaListAction'
 import store from '../redux/store'
+import {ObserveDom} from "better-scroll";
+
+@
 export default function Cinemas(props) {
 
     const [cityName] = useState(store.getState().CityReducer.cityName)
@@ -35,22 +38,29 @@ export default function Cinemas(props) {
 
     return (
         <div>
-            <div style={{overflow:"hidden"}}>
-                <div onClick={()=>{
-                    props.history.push(`/city`)
-                }} style={{float:"left"}}>{cityName}</div>
-                <div style={{float:"right"}} onClick={()=>{
-                    props.history.push(`/cinemas/search`)
-                }}>搜索</div>
-            </div>
-            {
-                  cinemaList.map(item=>
-                    <dl key={item.cinemaId} style={{padding:"10px"}}>
-                        <dt>{item.name}</dt>
-                        <dd style={{fontSize:"12px",color:"gray"}}>{item.address}</dd>
-                    </dl>    
-                )
-            }
+            <Observe>
+                {
+                    ()=>{
+                        return  <div style={{overflow:"hidden"}}>
+                            <div onClick={()=>{
+                                props.history.push(`/city`)
+                            }} style={{float:"left"}}>{cityName}</div>
+                            <div style={{float:"right"}} onClick={()=>{
+                                props.history.push(`/cinemas/search`)
+                            }}>搜索</div>
+                        </div>
+                        {
+                            store.list.map(item=>
+                                <dl key={item.cinemaId} style={{padding:"10px"}}>
+                                    <dt>{item.name}</dt>
+                                    <dd style={{fontSize:"12px",color:"gray"}}>{item.address}</dd>
+                                </dl>
+                            )
+                        }
+                    }
+                }
+            </Observe>
         </div>
+
     )
 }
